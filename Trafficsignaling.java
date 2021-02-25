@@ -1,5 +1,6 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -7,7 +8,7 @@ class Street {
     private int startIId = -1;
     private int endIId = -1;
     private int L = -1;
-    private String name = ""
+    private String name = "";
 
     Street(int startIId, int endIId, String name, int L) {
         this.startIId = startIId;
@@ -29,8 +30,8 @@ public class Trafficsignaling {
     public static void main(String args[]) {
         Scanner sc = new Scanner(System.in);
         String fileName = "a.txt";//sc.nextLine();                  // get the name of the input file
+        streets = new HashMap<Integer, Street>();
 
-        vertices = new HashMap<Integer, Vertex>();
         // ----------- Reading The File -----------
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
             String line;
@@ -45,7 +46,11 @@ public class Trafficsignaling {
             F = Integer.parseInt(read[4]);
 
             for(int i = 0; i < S; i++){
-
+                read = line.split(" ");
+                streets.put(i, new Street(Integer.parseInt(read[0]),
+                                    Integer.parseInt(read[1]),
+                                    read[2],
+                        Integer.parseInt(read[3])));
             }
             for(int i = 0; i < V; i++){
 
