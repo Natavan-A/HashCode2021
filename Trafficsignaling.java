@@ -1,18 +1,15 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 
 class Vehicle {
     private int numberOfPaths;
-    private ArrayList pathNames;
+    private LinkedList pathNames;
     private int startInteractionId;
     private int endInteractionIdL;
 
-    public Vehicle(int numberOfPaths, ArrayList pathNames, int startInteractionId, int endInteractionIdL) {
+    public Vehicle(int numberOfPaths, LinkedList pathNames, int startInteractionId, int endInteractionIdL) {
         this.numberOfPaths = numberOfPaths;
         this.pathNames = pathNames;
         this.startInteractionId = startInteractionId;
@@ -23,7 +20,7 @@ class Vehicle {
         return numberOfPaths;
     }
 
-    public ArrayList getPathNames() {
+    public LinkedList getPathNames() {
         return pathNames;
     }
 
@@ -75,6 +72,7 @@ public class Trafficsignaling {
             F; // bonus point
 
     static Map<String, Street> streets;  // storage for all streets
+    static Map<int, Vehicle> vehicles; // storage for all vehicles
 
     public static void main(String args[]) {
         Scanner sc = new Scanner(System.in);
@@ -102,6 +100,18 @@ public class Trafficsignaling {
                         Integer.parseInt(read[3])));
             }
             for(int i = 0; i < V; i++){
+                read = line.split(" ");
+                int pathLength = (int)read[0]
+
+                LinkedList<String> paths = new LinkedList<String>()
+                for (int j = 1; j <= pathLength; j++)
+                {
+                    paths.add(read[j]);
+                }
+
+                startInteraction = streets.get(paths.getFirst())[1];
+                endInteraction = streets.get(paths.getFirst())[0];
+                vehicles.put(pathLength, new Vehicle(pathLength, paths, startInteraction, endInteraction))
 
             }
         }
