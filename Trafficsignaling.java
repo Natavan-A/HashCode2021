@@ -36,17 +36,17 @@ class Street {
 
 public class Trafficsignaling {
     public static int D, // duration
-                    I, // the number of intersections
-                    S, // the number of streets,
-                    V, // thenumberofcars
-                    F; // bonus point
+            I, // the number of intersections
+            S, // the number of streets,
+            V, // thenumberofcars
+            F; // bonus point
 
-    static Map<Integer, Street> streets;  // storage for all streets
+    static Map<String, Street> streets;  // storage for all streets
 
     public static void main(String args[]) {
         Scanner sc = new Scanner(System.in);
         String fileName = "a.txt";//sc.nextLine();                  // get the name of the input file
-        streets = new HashMap<Integer, Street>();
+        streets = new HashMap<String, Street>();
 
         // ----------- Reading The File -----------
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
@@ -63,9 +63,9 @@ public class Trafficsignaling {
 
             for(int i = 0; i < S; i++){
                 read = line.split(" ");
-                streets.put(i, new Street(Integer.parseInt(read[0]),
-                                    Integer.parseInt(read[1]),
-                                    read[2],
+                streets.put(read[2], new Street(Integer.parseInt(read[0]),
+                        Integer.parseInt(read[1]),
+                        read[2],
                         Integer.parseInt(read[3])));
             }
             for(int i = 0; i < V; i++){
