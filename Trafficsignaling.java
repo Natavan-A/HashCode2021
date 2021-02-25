@@ -1,8 +1,41 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+
+
+class Vehicle {
+    private int numberOfPaths;
+    private ArrayList pathNames;
+    private int startInteractionId;
+    private int endInteractionIdL;
+
+    public Vehicle(int numberOfPaths, ArrayList pathNames, int startInteractionId, int endInteractionIdL) {
+        this.numberOfPaths = numberOfPaths;
+        this.pathNames = pathNames;
+        this.startInteractionId = startInteractionId;
+        this.endInteractionIdL = endInteractionIdL;
+    }
+
+    public int getNumberOfPaths() {
+        return numberOfPaths;
+    }
+
+    public ArrayList getPathNames() {
+        return pathNames;
+    }
+
+    public int getStartInteractionId() {
+        return startInteractionId;
+    }
+
+    public int getEndInteractionIdL() {
+        return endInteractionIdL;
+    }
+}
+
 
 class Street {
     private int startIId = -1;
