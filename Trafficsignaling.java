@@ -16,6 +16,22 @@ class Street {
         this.name = name;
         this.L = L;
     }
+
+    public int getStartIId() {
+        return startIId;
+    }
+
+    public int getEndIId() {
+        return endIId;
+    }
+
+    public int getL() {
+        return L;
+    }
+
+    public String getName() {
+        return name;
+    }
 }
 
 public class Trafficsignaling {
